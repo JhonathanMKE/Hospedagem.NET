@@ -37,18 +37,8 @@ namespace DesafioProjetoHospedagem.Models
 
         public decimal CalcularValorDiaria()
         {
-            decimal valor = 0;
-
-            if (DiasReservados >= 10)
-            {
-                valor = DiasReservados * Suite.ValorDiaria;
-            }
-            else
-            {
-                valor = DiasReservados * Suite.ValorDiaria * 0.9M;
-            }
-
-            return valor;
+            decimal fator = (DiasReservados >= 10) ? 0.9M : 1M;
+            return DiasReservados * Suite.ValorDiaria * fator;
         }
     }
 }
